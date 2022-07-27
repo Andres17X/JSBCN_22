@@ -15,7 +15,6 @@ function Conmuta(){
         width: "60px",
         height: "60px",
         borderRadius : "40px",
-        marginTop : "10px",
         marginRight: "10px",
         display: "inline-block",
         backgroundColor: actiu ? "orange" : "grey"

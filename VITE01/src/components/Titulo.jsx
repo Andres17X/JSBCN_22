@@ -1,7 +1,7 @@
 function Titulo(props){
     return (
         <>
-        <h1 className={props.title}>{props.texto}</h1>
+        <h3 className={props.title}>{props.texto}</h3>
         </>
     )
 }
