@@ -5,6 +5,9 @@ function SumaResta(){
 
     const [operacion, setOperacion] = useState(0);
 
+    const estilos = {
+        marginTop: "-20px"
+    }
     function resta(){
         setOperacion(operacion-1);
         if (operacion == 0) {
@@ -21,9 +24,11 @@ function SumaResta(){
     }
     return (
         <>
+        <div style={estilos}>
         <button onClick={resta}>-</button>
         <span>{operacion}</span>
         <button onClick={suma}>+</button>
+        </div>
         </>
     )
 }
