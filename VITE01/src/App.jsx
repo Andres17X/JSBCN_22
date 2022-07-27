@@ -1,4 +1,3 @@
-import { useState } from "react";
 
 import Bola from "./components/Bola";
 import Separadora from "./components/Separadora";
@@ -7,11 +6,11 @@ import BolaX from "./components/BolaX";
 import Conmuta from "./components/Conmuta";
 import ConmutaTodos from "./components/ConmutaTodos";
 import SumaResta from "./components/SumaResta";
-
+import Random from "./components/Random";
+import Fila from "./components/Fila";
 
 function App() {
 
-const [index,setIndex] = useState(4);
 
   return (
     <>
@@ -22,7 +21,7 @@ const [index,setIndex] = useState(4);
       <Separadora margen="1px" color="black" />
       <Separadora margen="3px" color="black" />
       <Titulo texto="Hola 1react" />
-      <BolaX talla="1050px" margen="4px" fondo="red" numero="10" />
+      <BolaX talla="100px" margen="4px" fondo="red" numero="10" />
       <br></br>
       <h1>EJERCICIO 1 useState</h1>
       <Conmuta/>
@@ -34,7 +33,10 @@ const [index,setIndex] = useState(4);
       <ConmutaTodos />
       <h1>EJERCICIO 3 Y 4</h1>
       <SumaResta />
-      <Numero />
+      <h1>EJERCICIO 5</h1>
+      <Random />
+      <h1>EJERCICIO 6</h1>
+      <Fila/>
     </>
   )
 }
