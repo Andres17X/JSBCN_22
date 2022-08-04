@@ -1,0 +1,9 @@
+h1 {
+    box-sizing: border-box;
+    width: 100%;
+    border: 5px solid blue;
+    align-content: stretch;
+    align-items: flex-start;
+    justify-content: center;
+    display: flex;
+}
