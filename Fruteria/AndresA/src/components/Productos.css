@@ -1,0 +1,11 @@
+.carrito {
+    box-sizing: border-box;
+    width: 15%;
+    border: 10px solid rgb(59, 232, 20);
+    margin-top: 10px;
+    color: white;
+    background-color: rgb(59, 232, 20);
+}
+button {
+    float: right;
+}
