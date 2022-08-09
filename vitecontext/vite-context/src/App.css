@@ -1,11 +1,17 @@
 .nav-link {
-    margin-top: 10px;
+    margin-top: 20px;
 }
-.container {
-    margin-left: 0px;
-}
-.navbar-brand {
-    margin-left: 100px;
-    align-items: center;
+.navbar {
+    float: left;
+    color: white;
+    height: 100vh;
     text-align: center;
+    flex-direction: column;
+}
+.Encabezado {
+    margin-bottom: 100px;
+}
+
+button {
+    margin-top: 10px;
 }

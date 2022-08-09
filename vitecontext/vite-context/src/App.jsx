@@ -18,13 +18,21 @@ function App() {
 
   return (
     <TraductorContext.Provider value={{ traduce, idioma }}>
-        
-        <Navbar bg="light" expand="lg">
-      <Container>
-        <Navbar.Brand href="#">Navbar</Navbar.Brand>
-        <Navbar.Toggle aria-controls="basic-navbar-nav" />
-          <Navbar.Collapse id="basic-navbar-nav"></Navbar.Collapse>
-        <div className="text-end">
+  
+    <Navbar bg="dark" expand="lg" >
+          <Row>
+            <Col>
+              <h1 className='Encabezado'>Parcs </h1>
+              <Link to="/Collserola" className='nav-link align-baseline'>Collserola</Link>
+              <Link to="/Vallvidrera" className='nav-link'>Pantano de Vallvidrera</Link>
+              <Link to="/Montseny" className='nav-link'>Parque Natural del Montseny</Link>
+              <Link to="/Llobregat" className='nav-link'>Delta del Llobregat</Link>
+              <Link to="/Montserrat" className='nav-link'>La montaña de Montserrat</Link>
+              <Link to="/edraforca" className='nav-link'>El Pedraforca</Link>
+              <Link to="/Llobregat2" className='nav-link'>El Delta del Llobregat</Link>
+              <Link to="/Garraf" className='nav-link'>Parc Natural del Garraf</Link>
+              <Link to="/AmuntYMola" className='nav-link'>Sant Llorenç d'Amunt y la Mola</Link>
+              <div className="text">
             <Button
               size="sm"
               variant={idioma === 0 ? "primary" : "outline-primary"}
@@ -40,17 +48,9 @@ function App() {
               CA
             </Button>
           </div>
-
-      </Container>
-    </Navbar>
-
-          <Row>
-            <Col>
-              <Link to="/Collserola" className='nav-link'>Collserola</Link>
-              <Link to="/p2" className='nav-link'>P2</Link>
-              <Link to="/p3" className='nav-link'>P3</Link>
               </Col>
           </Row>
+          </Navbar>
           <Outlet />
 
       <br />

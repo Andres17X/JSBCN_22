@@ -1,6 +1,4 @@
 import {useContext} from "react";
-
-
 import TraductorContext from "./TraductorContext.js";
 
 
@@ -11,6 +9,7 @@ function P1(){
     return (
         <>
         <h1>{Traductor.traduce('estas')} {' '} P1</h1>
+        {Traductor.nomUsuari}
         </>
     )
 }
