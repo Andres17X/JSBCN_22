@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pokedex</title>
+    <script src="pokedex.js"></script>
+    <link rel="stylesheet" href="carta.css">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="global.css">
+    <link rel="stylesheet" href="lista.css">
+    <link rel="stylesheet" href="responsivo.css">
+    <link rel="stylesheet" href="reset.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <main>
+ 
+        <nav class="listagem">
+            <ul id="ul1">
+                <audio id="audio" src="sounds/effect.mp3" autoplay="false" ></audio>
+                <li onclick="playSound();parseJSON()" class="pokemon activo" id="bulbasaur">
+                    <img src="imgs/Bulbasaur.png"/>
+                    <span>Bulbasaur</span>
+                </li>
+                <li  onclick="playSound();" class="pokemon" id="ivysaur">
+                    <img src="imgs/Ivysaur.png" />
+                    <span>Ivysaur</span>
+                </li>
+                <li onclick="playSound();" class="pokemon" id="venusaur">
+                    <img src="imgs/Venusaur.png" />
+                    <span>Venusaur</span>
+                </li>
+            </ul>
+                </ul>
+                <li  onclick="playSound();" class="pokemon" id="charmander">
+                    <img src="imgs/Charmander.png" />
+                    <span>Charmander</span>
+                </li>
+                <li onclick="playSound();" class="pokemon" id="charmeleon">
+                    <img src="imgs/Charmeleon.png" />
+                    <span>Charmeleon</span>
+                </li>
+                <li  onclick="playSound();" class="pokemon" id="charizard">
+                    <img src="imgs/Charizard.png" />
+                    <span>Charizard</span>
+                </li>
+            </ul>
+                <li  onclick="playSound();" class="pokemon" id="squirtle">
+                    <img src="imgs/Squirtle.png"  />
+                    <span>Squirtle</span>
+                </li>
+                <li  onclick="playSound();" class="pokemon" id="wartortle">
+                    <img src="imgs/Wartortle.png"  />
+                    <span>Wartotle</span>
+                </li>
+                <li onclick="playSound();" class="pokemon" id="blastoise">
+                    <img src="imgs/Blastoise.png"  />
+                    <span>Blastoise</span>
+                </li>
+            </ul>
+        </nav>
+    <div class="pokedex">
+        <div class="cartas-pokemon">
+            <div class="carta-pokemon tipo-planta abierto" id="carta-bulbasaur">
+                <div class="carta-top">
+                    <div class="detalles">
+                        <h2 class="name">Bulbasaur</h2>
+                        <span>#001</span>
+                    </div>
+
+                    <span class="tipo">planta</span>
+
+                    <div class="carta-imagen">
+                        <img src="imgs/Bulbasaur carta.png" alt="bulbasaur" />
+                    </div>
+                </div>
+                
+                <div class="carta-informacion">
+                    <div class="status">
+                        <h3>Preevolución</h3>
+
+                        <p id="evol">Ninguna</p>
+                    </div>
+
+                    <div class="habilidades">
+                        <h3>Descripcion</h3>
+                        <p>Este Pokémon nace con una semilla en el lomo, que brota con el paso del tiempo.</p>
+                    </div>
+                </div>
+             </div>
+             <div class="carta-pokemon tipo-planta" id="carta-ivysaur">
+                <div class="carta-top">
+                    <div class="detalles">
+                        <h2 class="name">Ivysaur</h2>
+                        <span>#002</span>
+                    </div>
+
+                    <span class="tipo">planta</span>
+
+                    <div class="carta-imagen">
+                        <img src="imgs/ivysaur carta.png" alt="ivysaur" />
+                    </div>
+                </div>
+
+                <div class="carta-informacion">
+                    <div class="status">
+                        <h3>Preevolución</h3>
+
+                        <p id="evol2">Bulbasaur</p>
+                    </div>
+
+                    <div class="habilidades">
+                        <h3>Descripcion</h3>
+                        <p>Cuando le crece bastante el bulbo del lomo, pierde la capacidad de erguirse sobre las patas traseras</p>
+                    </div>
+                </div>
+            </div>
+             <div class="carta-pokemon tipo-planta" id="carta-venusaur">
+                <div class="carta-top">
+                    <div class="detalles">
+                        <h2 class="nome">Venusaur</h2>
+                        <span>#003</span>
+                    </div>
+
+                    <span class="tipo">planta</span>
+
+                    <div class="carta-imagen">
+                        <img src="imgs/venusaur carta.png" alt="venusaur" />
+                    </div>
+                </div>
+
+                <div class="carta-informacion">
+                    <div class="status">
+                        <h3>Preevolución</h3>
+
+                        <p id="evol">Ivysaur</p>
+                    </div>
+
+                    <div class="habilidades">
+                        <h3>Descripcion</h3>
+                        <p>La planta florece cuando absorbe energía solar, lo cual le obliga a buscar siempre la luz del sol.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="carta-pokemon tipo-fuego" id="carta-charmander">
+                <div class="carta-top">
+                    <div class="detalles">
+                        <h2 class="name">Charmander</h2>
+                        <span>#004</span>
+                    </div>
+
+                    <span class="tipo">fuego</span>
+
+                    <div class="carta-imagen">
+                        <img src="imgs/charmander carta.png" alt="charmander" />
+                    </div>
+                </div>
+
+                <div class="carta-informacion">
+                    <div class="status">
+                        <h3>Preevolución</h3>
+
+                        <p id="evol">Ninguna</p>
+                    </div>
+
+                    <div class="habilidades">
+                        <h3>Descripcion</h3>
+                        <p>Prefiere las cosas calientes. Dicen que cuando llueve le sale vapor de la punta de la cola.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="carta-pokemon tipo-fuego" id="carta-charmeleon">
+                <div class="carta-top">
+                    <div class="detalles">
+                        <h2 class="name">Charmeleon</h2>
+                        <span>#005</span>
+                    </div>
+
+                    <span class="tipo">fuego</span>
+
+                    <div class="carta-imagen">
+                        <img src="imgs/charmeleon carta.png" alt="charmeleon" />
+                    </div>
+                </div>
+
+                <div class="carta-informacion">
+                    <div class="status">
+                        <h3>Preevolución</h3>
+
+                        <p id="evol">Charmander</p>
+                    </div>
+
+                    <div class="habilidades">
+                        <h3>Descripcion</h3>
+                        <p>Este Pokémon de naturaleza agresiva ataca en combate con su cola llameante y hace trizas al rival con sus afiladas garras.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="carta-pokemon tipo-fuego" id="carta-charizard">
+                <div class="carta-top">
+                    <div class="detalles">
+                        <h2 class="name">Charizard</h2>
+                        <span>#006</span>
+                    </div>
+
+                    <span class="tipo">fuego</span>
+
+                    <div class="carta-imagen">
+                        <img src="imgs/charizard carta.png" alt="charizard" />
+                    </div>
+                </div>
+
+                <div class="carta-informacion">
+                    <div class="status">
+                        <h3>Preevolución</h3>
+
+                        <p id="evol">Charmeleon</p>
+                    </div>
+
+                    <div class="habilidades">
+                        <h3>Descripcion</h3>
+                        <p>Escupe un fuego tan caliente que funde las rocas. Causa incendios forestales sin querer.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="carta-pokemon tipo-agua" id="carta-squirtle">
+                <div class="carta-top">
+                    <div class="detalles">
+                        <h2 class="name">Squirtle</h2>
+                        <span>#007</span>
+                    </div>
+
+                    <span class="tipo">agua</span>
+
+                    <div class="carta-imagen">
+                        <img src="imgs/squirtle carta.png" alt="squirtle" />
+                    </div>
+                </div>
+
+                <div class="carta-informacion">
+                    <div class="status">
+                        <h3>Preevolución</h3>
+
+                        <p id="evol">Ninguna</p>
+                    </div>
+
+                    <div class="habilidades">
+                        <h3>Descripcion</h3>
+                        <p>Cuando retrae su largo cuello en el caparazón, dispara agua a una presión increíble.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="carta-pokemon tipo-agua" id="carta-wartortle">
+                <div class="carta-top">
+                    <div class="detalles">
+                        <h2 class="name">Wartortle</h2>
+                        <span>#008</span>
+                    </div>
+
+                    <span class="tipo">agua</span>
+
+                    <div class="carta-imagen">
+                        <img src="imgs/wartotle carta.png" alt="wartortle" />
+                    </div>
+                </div>
+
+                <div class="carta-informacion">
+                    <div class="status">
+                        <h3>Preevolución</h3>
+
+                        <p id="evol">Squirtle</p>
+                    </div>
+
+                    <div class="habilidades">
+                        <h3>Descripcion</h3>
+                        <p>Se lo considera un símbolo de longevidad. Los ejemplares más ancianos tienen musgo sobre el caparazón.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="carta-pokemon tipo-agua" id="carta-blastoise">
+                <div class="carta-top">
+                    <div class="detalles">
+                        <h2 class="name">Blastoise</h2>
+                        <span>#009</span>
+                    </div>
+
+                    <span class="tipo">agua</span>
+
+                    <div class="carta-imagen">
+                        <img src="imgs/blastoise carta.png" alt="blastoise" />
+                    </div>
+                </div>
+
+                <div class="carta-informacion">
+                    <div class="status">
+                        <h3>Preevolución</h3>
+
+                        <p id="evol">Wartortle</p>
+                    </div>
+
+                    <div class="habilidades">
+                        <h3>Descripcion</h3>
+                        <p>Para acabar con su enemigo, lo aplasta con el peso de su cuerpo. En momentos de apuro, se esconde en el caparazón.</p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+             
+        </div>
+        <div class="gens" >
+        <h1 class="header__logo">
+            <img src="imgs/logo.svg" alt="Pokedex" />
+          </h1>
+          <ul class="button">
+              <button class="gen">Gen 1</button>
+              <svg viewBox="0 0 500 150" preserveAspectRatio="none">
+                <path fill="none" d="M325,18C228.7-8.3,118.5,8.3,78,21C22.4,38.4,4.6,54.6,5.6,77.6c1.4,32.4,52.2,54,142.6,63.7 c66.2,7.1,212.2,7.5,273.5-8.3c64.4-16.6,104.3-57.6,33.8-98.2C386.7-4.9,179.4-1.4,126.3,20.7" />
+              </svg>
+          </ul>
+          <ul class="button">
+              <a class="gen" href="pokedex2.html">Gen 2</a>
+              <svg viewBox="0 0 500 150" preserveAspectRatio="none">
+                <path fill="none" d="M325,18C228.7-8.3,118.5,8.3,78,21C22.4,38.4,4.6,54.6,5.6,77.6c1.4,32.4,52.2,54,142.6,63.7 c66.2,7.1,212.2,7.5,273.5-8.3c64.4-16.6,104.3-57.6,33.8-98.2C386.7-4.9,179.4-1.4,126.3,20.7" />
+              </svg>
+              <br>
+            </ul>
+          </ul>
+        </div>
+
+    </main>
+    <footer>
+        <ul class="header__nav">
+            <li>
+              <a  class="icons" href="https://github.com/" target="_blank">
+                <img src="imgs/github.svg" alt="GitHub" />
+              </a>
+            </li>
+            <li>
+              <a class="icons"
+                href="https://www.linkedin.com/"
+                target="_blank"
+              >
+                <img src="imgs/linkedin.svg" alt="Linkedin" />
+              </a>
+            </li>
+            <li>
+              <a class="icons" href="https://www.instagram.com/" target="_blank">
+                <img src="imgs/instagram.svg" alt="Instagram" />
+              </a>
+            </li>
+          </ul>
+    </footer>
+
+
+
+
+    
+    <script src="index.js"></script>
+
+</body>
+</html>

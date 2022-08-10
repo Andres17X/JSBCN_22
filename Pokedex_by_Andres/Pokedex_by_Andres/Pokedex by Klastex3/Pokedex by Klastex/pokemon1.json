@@ -1,0 +1,56 @@
+ [
+ {
+        "img":"imgs/1.png",
+        "Nombre":"Bulbasaur",
+        "Preevolucion":"Ninguna",
+        "Descripcion":"Este Pokémon nace con una semilla en el lomo, que brota con el paso del tiempo."
+    },
+    {
+        "img":"imgs/2.png",
+        "Nombre":"Ivysaur",
+        "Preevolucion":"Bulbasaur",
+        "Descripcion":"Cuando le crece bastante el bulbo del lomo, pierde la capacidad de erguirse sobre las patas traseras"
+    },
+    {
+        "img":"imgs/3.png",
+        "Nombre":"Venusaur",
+        "Preevolucion":"Ivysaur",
+        "Descripcion":"La planta florece cuando absorbe energía solar, lo cual le obliga a buscar siempre la luz del sol."
+    },
+    {
+        "img":"imgs/4.png",
+        "Nombre":"Charmander",
+        "Preevolucion":"Ninguna",
+        "Descripcion":"Prefiere las cosas calientes. Dicen que cuando llueve le sale vapor de la punta de la cola."
+    },
+    {
+        "img":"imgs/5.png",
+        "Nombre":"Charmeleon",
+        "Preevolucion":"Charmander",
+        "Descripcion":"Este Pokémon de naturaleza agresiva ataca en combate con su cola llameante y hace trizas al rival con sus afiladas garras."
+    },
+    {
+        "img":"imgs/6.png",
+        "Nombre":"Charizard",
+        "Preevolucion":"Charmeleon",
+        "Descripcion":"Escupe un fuego tan caliente que funde las rocas. Causa incendios forestales sin querer."
+    },
+    {
+        "img":"imgs/7.png",
+        "Nombre":"Squirtle",
+        "Preevolucion":"Ninguna",
+        "Descripcion":"Cuando retrae su largo cuello en el caparazón, dispara agua a una presión increíble."
+    },
+    {
+        "img":"imgs/8.png",
+        "Nombre":"Wartortle",
+        "Preevolucion":"Squirtle",
+        "Descripcion":"Se lo considera un símbolo de longevidad. Los ejemplares más ancianos tienen musgo sobre el caparazón."
+    },
+    {
+        "img":"imgs/9.png",
+        "Nombre":"Blastoise",
+        "Preevolucion":"Wartotle",
+        "Descripcion":"Para acabar con su enemigo, lo aplasta con el peso de su cuerpo. En momentos de apuro, se esconde en el caparazón."
+    }
+ ]
