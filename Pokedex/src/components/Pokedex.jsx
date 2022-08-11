@@ -1,27 +1,22 @@
 import { useState ,useEffect } from "react"
-import json1 from './pokemon1.json';
-const URL = pokemon1.json;
+import { pokemon1 } from "./pokemon1";
 function Pokedex(){
-
-    const [llista, setLlista] = useState([]);
-    useEffect(() => {
-        fetch(json1)
-            .then(x => x.json())
-            .then(z => setLlista())
-            .catch(e => console.log(e))
-    }, [])
+    console.log(pokemon1)
+    const [llista, setLlista] = useState(pokemon1);
+    
     let filas = llista.map(pokemon => 
-        <tr >
+        <tr className={'carta-pokemon'} >
           <td>{pokemon.Nombre}</td>
           <td>{pokemon.Preevolucion}</td>
           <td>{pokemon.Descripcion}</td>
-  
       </tr>
     )
     return (
         <>
-         <nav className="listagem"> </nav>
+        <h1>Hola</h1>
+        <table>
          {filas}
+        </table>
          </>
     )
 }
