@@ -1,4 +1,4 @@
- [
+export const pokemon1 = [
  {
         "img":"imgs/1.png",
         "Nombre":"Bulbasaur",
@@ -53,4 +53,4 @@
         "Preevolucion":"Wartotle",
         "Descripcion":"Para acabar con su enemigo, lo aplasta con el peso de su cuerpo. En momentos de apuro, se esconde en el caparazón."
     }
- ]
+ ];

@@ -16,13 +16,13 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;800&display=swap" rel="stylesheet">
 </head>
-<body>
+<body onload='parseJSON()'>
     <main>
  
         <nav class="listagem">
             <ul id="ul1">
                 <audio id="audio" src="sounds/effect.mp3" autoplay="false" ></audio>
-                <li onclick="playSound();parseJSON()" class="pokemon activo" id="bulbasaur">
+                <li onclick="playSound();" class="pokemon activo" id="bulbasaur">
                     <img src="imgs/Bulbasaur.png"/>
                     <span>Bulbasaur</span>
                 </li>
@@ -65,6 +65,9 @@
         </nav>
     <div class="pokedex">
         <div class="cartas-pokemon">
+
+        </div>
+        <!-- <div class="cartas-pokemon">
             <div class="carta-pokemon tipo-planta abierto" id="carta-bulbasaur">
                 <div class="carta-top">
                     <div class="detalles">
@@ -309,7 +312,7 @@
                 </div>
             </div>
 
-        </div>
+        </div> -->
              
         </div>
         <div class="gens" >

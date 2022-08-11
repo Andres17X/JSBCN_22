@@ -12,10 +12,10 @@ listaSelecionPokemons.forEach(pokemon => {
         cartaPokemonAberto.classList.remove('abierto')
       
         const idPokemonSelecionado = pokemon.attributes.id.value
+        const idPokemonSelecionadoCapitaliced = idPokemonSelecionado.charAt(0).toUpperCase() + idPokemonSelecionado.slice(1);
 
-        const idDeCartaPokemonParaAbrir = 'carta-' + idPokemonSelecionado
-        const cartaPokemonParaAbrir = document.getElementById(idDeCartaPokemonParaAbrir)
-
+        const cartaPokemonParaAbrir = document.getElementById(`carta-${idPokemonSelecionadoCapitaliced}`)
+        console.log(`carta-${idPokemonSelecionado.toUpperCase()}`)
         cartaPokemonParaAbrir.classList.add('abierto')
 
         const pokemonActivoenLista = document.querySelector('.activo')
