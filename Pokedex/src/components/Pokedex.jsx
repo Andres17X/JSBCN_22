@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react"
 import { pokemon1 } from "./pokemon1";
+import { script } from "./script.js";
 import './carta.css';
 import './global.css';
 import './lista.css';
@@ -11,6 +12,9 @@ import insta from '../imgs/instagram.svg';
 import linkedin from '../imgs/linkedin.svg';
 import github from '../imgs/github.svg';
 function Pokedex() {
+    const listaSelecionPokemons = document.querySelectorAll('.pokemon')
+const pokemonsCard = document.querySelectorAll('.carta-pokemon')
+
     console.log(pokemon1)
 
     function playSound() {
@@ -19,51 +23,48 @@ function Pokedex() {
         audio.volume = 0.05;
     }
     const [llista, setLlista] = useState(pokemon1);
+    const [llista2, setLlista2] =useState(pokemon1);
 
     let filas = llista.map(pokemon =>
-
-        <tr className="parent">
-
+        <ul id="parent">
             <audio id="audio" src="sounds/effect.mp3" autoPlay="false" />
-            <li onClick={playSound} className="pokemon activo" id={pokemon.bulbasaur}>
-                <img />
-                <span>{pokemon.bulbasaur}</span>
+            <li onClick={playSound} className="pokemon" id={pokemon.Nombre}>
+                <img src={pokemon.img}/>
+                <span>{pokemon.Nombre}</span>
             </li>
-
-
-
-            <div className="pokedex">
-                <div className="cartas-pokemon">
-                    <div className="carta-pokemon tipo-planta abierto" id={pokemon.Nombre} >
-                        <div className="carta-top">
-                            <div className="detalles">
-                                <h2 className="name">{pokemon.Nombre}</h2>
-                                <span>{pokemon.pokedex}</span>
-                            </div>
-                            <span className="tipo">{pokemon.tipo}</span>
-                            <div className="carta-imagen">
-                                <img src={pokemon.img} alt={pokemon.Nombre} />
-                            </div>
-                        </div>
-                        <div className="carta-informacion">
-                            <div className="status">
-                                <h3>Preevolución</h3>
-                                <p id="evol">{pokemon.Preevolucion}</p>
-                            </div>
-                            <div className="habilidades">
-                                <h3>Descripcion</h3>
-                                <p>
-                                    {pokemon.Descripcion}
-                                </p>
-                            </div>
-                        </div>
+            </ul> 
+    )
+    let filas2 = llista2.map(pokemon =>
+        <div className="pokedex">
+        <div className="cartas-pokemon">
+            <div className="carta-pokemon tipo-planta " id={pokemon.Nombre} >
+                <div className="carta-top">
+                    <div className="detalles">
+                        <h2 className="name">{pokemon.Nombre}</h2>
+                        <span>{pokemon.pokedex}</span>
+                    </div>
+                    <span className="tipo">{pokemon.tipo}</span>
+                    <div className="carta-imagen">
+                        <img alt={pokemon.Nombre} />
+                    </div>
+                </div>
+                <div className="carta-informacion">
+                    <div className="status">
+                        <h3>Preevolución</h3>
+                        <p id="evol">{pokemon.Preevolucion}</p>
+                    </div>
+                    <div className="habilidades">
+                        <h3>Descripcion</h3>
+                        <p>
+                            {pokemon.Descripcion}
+                        </p>
                     </div>
                 </div>
             </div>
-        </tr>
-
-
-    )
+        </div>
+    </div>
+        
+        )
     return (
         <>
             <main>
@@ -73,6 +74,7 @@ function Pokedex() {
                         {filas}
                     </ul>
                     </nav>
+                    {filas2}
                     <div className="gens">
                         <h1 className="header__logo">
                             <img src={logo} alt="Pokedex" />
