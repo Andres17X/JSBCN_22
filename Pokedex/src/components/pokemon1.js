@@ -10,9 +10,10 @@ import img9 from "../imgs/blastoise.png";
 
 
 
+
 export const pokemon1 = [
  {
-    "bulbasaur": {
+
         "img": img1,
         "tipo":"planta",
         "carta":"carta-bulbasaur",
@@ -21,7 +22,6 @@ export const pokemon1 = [
         "pokedex":"#001",
         "Preevolucion":"Ninguna",
         "Descripcion":"Este Pokémon nace con una semilla en el lomo, que brota con el paso del tiempo."
-    }
     },
     {
         "img":img2,
