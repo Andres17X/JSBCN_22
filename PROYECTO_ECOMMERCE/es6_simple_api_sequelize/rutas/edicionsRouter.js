@@ -1,76 +1,53 @@
 import express from 'express';
-
 import { DataTypes } from "sequelize";
 
 import sequelize from "../loadSequelize.js";
 
 
 //DEFINICION DEL MODELO
-const Facturas = sequelize.define('Facturas', {
-    id : {
-        type: DataTypes.INTEGER,
-        autoIncrement: true,
-        primaryKey: true
-    },
-    numero: DataTypes.STRING,
-    fecha: DataTypes.DATEONLY,
-    direccion: DataTypes.STRING,
-    poblacion: DataTypes.STRING,
-    cpostal: DataTypes.STRING,
-    nombre: DataTypes.STRING
+const Edicio = sequelize.define('Edicio', {
+    titol: DataTypes.STRING,
+    datainici: DataTypes.DATEONLY
 
-
-}, { tableName: 'facturas', timestamps: false });
+}, { tableName: 'edicions', timestamps: false });
 
 const Cliente = sequelize.define('Cliente', {
-    id : {
-        type: DataTypes.INTEGER,
-        autoIncrement: true,
-        primaryKey: true
-    },
-    nombre: DataTypes.STRING,
-    email: DataTypes.STRING,
-    direccion: DataTypes.STRING,
-    poblacion: DataTypes.STRING,
-    cpostal: DataTypes.STRING,
-    password: DataTypes.STRING
+    nom: DataTypes.STRING,
+    datanaix: DataTypes.DATEONLY,
+    email: DataTypes.STRING
 
 }, { tableName: 'clientes', timestamps: false });
 
-Facturas.hasOne(Cliente, { foreignKey: 'clientes_id', foreignKeyConstraint: true })
 
- //
-// const Matricula = sequelize.define('Matricula', {
-//     FacturasId: {
-//         type: DataTypes.INTEGER,
-//         field: "FacturasId",
-//         references: {
-//             model: Facturas,
-//             key: "id"
-//         }
-//     },
-//     ClienteID: {
-//         field: "ClienteID",
-//         type: DataTypes.INTEGER,
-//         references: {
-//             model: Cliente,
-//             key: "id"
-//         }
-//     }
-// }, { tableName: 'matricula', timestamps: false });
+const Matricula = sequelize.define('Matricula', {
+    EdicioId: {
+        type: DataTypes.INTEGER,
+        field: "EdicioId",
+        references: {
+            model: Edicio,
+            key: "id"
+        }
+    },
+    ClienteId: {
+        field: "ClienteID",
+        type: DataTypes.INTEGER,
+        references: {
+            model: Cliente,
+            key: "id"
+        }
+    }
+}, { tableName: 'matricula', timestamps: false });
 
-// Facturas.belongsToMany(Cliente, {through: Matricula});
-// Cliente.belongsToMany(Facturas, {through: Matricula});
-//
-
+Edicio.belongsToMany(Cliente, {through: Matricula});
+Cliente.belongsToMany(Edicio, {through: Matricula});
 
 
 const router = express.Router();
 
-// GET lista de todos los clientes
-// vinculamos la ruta /api/clientes a la función declarada
+// GET lista de todos los edicions
+// vinculamos la ruta /api/edicions a la función declarada
 // si todo ok devolveremos un objeto tipo:
-//     {ok: true, data: [lista_de_objetos_cliente...]}
+//     {ok: true, data: [lista_de_objetos_edicio...]}
 // si se produce un error:
 //     {ok: false, error: mensaje_de_error}
 
@@ -78,11 +55,11 @@ router.get('/', function (req, res, next) {
 
     sequelize.sync().then(() => {
 
-        Cliente.findAll()
-            //.then(clientes => res.json(clientes))
-            .then(clientes => res.json({
+        Edicio.findAll({ include:{model: Cliente} })
+            //.then(edicions => res.json(edicions))
+            .then(edicions => res.json({
                 ok: true,
-                data: clientes
+                data: edicions
             }))
             .catch(error => res.json({
                 ok: false,
@@ -98,11 +75,11 @@ router.get('/', function (req, res, next) {
 
 });
 
-// GET de un solo Cliente
+// GET de un solo edicio
 router.get('/:id', function (req, res, next) {
     sequelize.sync().then(() => {
 
-        Cliente.findOne({ where: { id: req.params.id } })
+        Edicio.findOne({ where: { id: req.params.id }, include:{model: Cliente} })
             .then(al => res.json({
                 ok: true,
                 data: al
@@ -120,18 +97,31 @@ router.get('/:id', function (req, res, next) {
     });
 });
 
-
-
-// POST, creació d'un nou Cliente
-router.post('/', function (req, res, next) {
+router.post('/:id1/noucliente/:id2', function (req, res, next) {
     sequelize.sync().then(() => {
 
-
-
-        Cliente.create(req.body)
+        Matricula.create({
+            ClienteId: req.params.id2,
+            EdicioId: req.params.id1
+        })
             .then((item) => res.json({ ok: true, data: item }))
             .catch((error) => res.json({ ok: false, error: error.message }))
 
+    }).catch((error) => {
+        res.json({
+            ok: false,
+            error: error.message
+        })
+    });
+});
+
+// POST, creació d'un nou edicio
+router.post('/', function (req, res, next) {
+    sequelize.sync().then(() => {
+
+        Edicio.create(req.body)
+            .then((item) => res.json({ ok: true, data: item }))
+            .catch((error) => res.json({ ok: false, error: error.message }))
 
     }).catch((error) => {
         res.json({
@@ -142,17 +132,17 @@ router.post('/', function (req, res, next) {
 });
 
 
-// put modificació d'un Cliente
+// put modificació d'un edicio
 router.put('/:id', function (req, res, next) {
     sequelize.sync().then(() => {
 
-        Cliente.findOne({ where: { id: req.params.id } })
-            .then(cliente_trobat =>
-                cliente_trobat.update(req.body)
+        Edicio.findOne({ where: { id: req.params.id } })
+            .then(edicio_trobat =>
+                edicio_trobat.update(req.body)
             )
-            .then(cliente_modificat => res.json({
+            .then(edicio_modificat => res.json({
                 ok: true,
-                data: cliente_modificat
+                data: edicio_modificat
             }))
             .catch(error => res.json({
                 ok: false,
@@ -169,12 +159,12 @@ router.put('/:id', function (req, res, next) {
 
 
 
-// DELETE elimina l'cliente id
+// DELETE elimina l'edicio id
 router.delete('/:id', function (req, res, next) {
 
     sequelize.sync().then(() => {
         
-        Cliente.destroy({ where: { id: req.params.id } })
+        Edicio.destroy({ where: { id: req.params.id } })
             .then((data) => res.json({ ok: true, data }))
             .catch((error) => res.json({ ok: false, error }))
 

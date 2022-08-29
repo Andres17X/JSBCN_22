@@ -37,8 +37,6 @@ const Cliente = sequelize.define('Cliente', {
 
 }, { tableName: 'clientes', timestamps: false });
 
-Facturas.hasOne(Cliente, { foreignKey: 'clientes_id', foreignKeyConstraint: true })
-
  //
 // const Matricula = sequelize.define('Matricula', {
 //     FacturasId: {
