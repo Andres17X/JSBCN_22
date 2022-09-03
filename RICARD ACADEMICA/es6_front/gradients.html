@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .bola {
+            width: 40px;
+            height: 40px;
+            background-color: grey;
+            display: inline-block;
+            border-radius: 100%;
+            margin: 6px;
+        }
+    </style>
+    <script>
+        window.steps = 8;
+        window.color1="#ff0000";
+        window.color2="#00ff00";
+    </script>
+</head>
+
+<body>
+
+    <input type="color" value="#ff0000" onChange="window.color1=this.value">
+    <input type="color" value="#00ff00" onChange="window.color2=this.value">
+    <input type="range" min="5" max="200" value="8" oninput="this.nextElementSibling.value = this.value" onChange="window.steps=this.value">
+    <output>8</output>
+    <br>
+    <br>
+    <button onClick="fes()">Fes</button>
+    <div id="boles"></div>
+
+
+    <script>
+
+        function fes() {
+            console.log("colors: ", window.color1, window.color2)
+            const numboles = window.steps;
+            let colors = getGradient(window.color1, window.color2, numboles);
+            console.log(colors);
+            let boles = document.getElementById('boles');
+            boles.innerHTML = '';
+            for (let i = 0; i < numboles; i++) {
+                var bola = document.createElement('div');
+                bola.classList.add('bola');
+                bola.style.cssText = 'background-color:' + colors[i];
+                boles.appendChild(bola);
+            }
+
+        }
+
+
+        // hex2dec('ff') => 255
+        function hex2dec(hexpair) {
+            const first = hexpair[0];
+            const second = hexpair[1];
+            const values = '0123456789abcdef';
+            let ret = 0;
+            ret = ret + values.indexOf(second);
+            ret = ret + values.indexOf(first) * 16;
+            return ret;
+        }
+
+        // dec2hex(255) => 'ff'
+        function dec2hex(byte) {
+            //ull! converteix a abs per si de cas
+            if (byte < 0) byte *= -1;
+            const values = "0123456789abcdef";
+            if (byte == 0) return "00";
+            const first = values[(byte - byte % 16) / 16];
+            const second = values[byte % 16];
+            return first + second;
+        }
+
+        // css2rgb("#39b330") => [57, 179, 48]
+        function css2rgb(cssColor) {
+            let red = cssColor.substr(1, 2);
+            let green = cssColor.substr(3, 2);
+            let blue = cssColor.substr(5, 2);
+            return [hex2dec(red), hex2dec(green), hex2dec(blue)];
+        }
+
+        // rgb2css([57, 179, 48]) => "#39b330"
+        function rgb2css(rgbArray) {
+            const ret =  '#' + dec2hex(rgbArray[0]) + dec2hex(rgbArray[1]) + dec2hex(rgbArray[2]);
+            return ret;
+        }
+
+        function getGradient(cssStart, cssEnd, steps) {
+
+            const rgbStart = css2rgb(cssStart);
+            const rbgEnd = css2rgb(cssEnd);
+
+            const diff_red = rbgEnd[0] - rgbStart[0];
+            const diff_green = rbgEnd[1] - rgbStart[1];
+            const diff_blue = rbgEnd[2] - rgbStart[2];
+
+            const delta_red = Math.floor(diff_red / steps);
+            const delta_green = Math.floor(diff_green / steps);
+            const delta_blue = Math.floor(diff_blue / steps);
+
+            const ret = [cssStart];
+            for (let i = 1; i <= steps - 2; i++) {
+                let newRgbColor = [
+                    rgbStart[0] + delta_red * i,
+                    rgbStart[1] + delta_green * i,
+                    rgbStart[2] + delta_blue * i
+                ];
+                ret.push(rgb2css(newRgbColor));
+            }
+            ret.push(cssEnd);
+            return ret;
+
+        }
+
+
+
+
+    </script>
+
+
+</body>
+
+</html>
